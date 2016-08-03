@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JKInformView.h"
+#import "JKWaitingView.h"
 
 //快速引用单例
 #define JK_M [JKAlertManager manager]
@@ -24,7 +25,7 @@
 //文本视图
 @property (nonatomic, strong) UILabel *textLabel;
 //等待视图
-@property (nonatomic, strong) UIActivityIndicatorView *waitView;
+@property (nonatomic, strong) JKWaitingView *waitView;
 //主窗口是否存在弹出
 @property (nonatomic, assign) BOOL isAlerted;
 //主窗口

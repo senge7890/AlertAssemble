@@ -8,10 +8,6 @@
 
 #import "JKInformView.h"
 
-//动画持续时间(秒)
-#define ANIMATE_DURATION 0.5
-//线条粗度
-#define LINE_WIDTH 2.0
 //比例1/7
 #define ONE_SEVENTH 0.14
 
@@ -61,8 +57,16 @@
     [self.layer addSublayer:layer];
     //开始绘图
     [self drawLineAnimation];
-    //根据标识类型判断执行哪个绘图方法
-    SEL drawAction = _stylePrivate == JKInformStyleTick ? @selector(drawInformTick) : @selector(drawInfromCross);
+    //根据标识类型判断执行哪个绘图方法 (判断所有可能, 尽量不用三目)
+    SEL drawAction;
+    switch (_stylePrivate) {
+        case JKInformStyleTick:
+            drawAction = @selector(drawInformTick);
+            break;
+        case JKInformStyleCross:
+            drawAction = @selector(drawInfromCross);
+            break;
+    }
     //延时执行
     [self performSelector:drawAction withObject:nil afterDelay:ANIMATE_DURATION];
 }

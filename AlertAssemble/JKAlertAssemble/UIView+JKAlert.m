@@ -15,7 +15,9 @@ CGFloat half(CGFloat number) {
 CGFloat doubling(CGFloat number) {
     return number * 2.0;
 }
-
+CGFloat angleMake(CGFloat angle) {
+    return angle * (M_PI / 180.0f);
+}
 @implementation UIView (JKAlert)
 
 #pragma mark - setter

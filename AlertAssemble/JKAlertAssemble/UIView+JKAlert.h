@@ -38,11 +38,23 @@ CGFloat half(CGFloat number);
  *  @return
  */
 CGFloat doubling(CGFloat number);
+/**
+ *  角度转浮点型
+ *
+ *  @param angle 角度(数学单位)
+ *
+ *  @return 
+ */
+CGFloat angleMake(CGFloat angle);
 
 //屏幕宽度
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 //屏幕高度
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+//动画持续时间(秒)
+#define ANIMATE_DURATION 0.5
+//线条粗度
+#define LINE_WIDTH 2.0
 
 @interface UIView (JKAlert)
 

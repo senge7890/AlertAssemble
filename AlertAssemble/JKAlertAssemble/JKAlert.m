@@ -8,7 +8,7 @@
 
 #import "JKAlert.h"
 #import "JKAlertManager.h"
-
+#import "NSObject+JKAlert.h"
 
 @implementation JKAlert
 
@@ -37,7 +37,7 @@
             //主窗口添加可交互视图
             [JK_M.mainWindow addSubview:JK_M.maskView];
             //设置弹窗容器和内容宽高
-            CGFloat cWH = SCREEN_WIDTH * 0.14, iWH = cWH * 0.98;
+            CGFloat cWH = SCREEN_WIDTH * 0.2, iWH = cWH * 0.7;
             //屏幕中心点
             CGPoint screenCenter = CGPointMake(half(SCREEN_WIDTH), half(SCREEN_HEIGHT));
             //创建容器
@@ -55,13 +55,9 @@
             //添加容器到主窗口
             [JK_M.mainWindow addSubview:JK_M.containView];
             //创建内容
-            JK_M.waitView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, iWH, iWH)];
+            JK_M.waitView = [[JKWaitingView alloc] initWithFrame:CGRectMake(0, 0, iWH, iWH)];
             //内容居中
             JK_M.waitView.center = screenCenter;
-            //设置样式
-            JK_M.waitView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-            //开始动画
-            [JK_M.waitView startAnimating];
             //添加内容到主窗口
             [JK_M.mainWindow addSubview:JK_M.waitView];
         }
@@ -105,6 +101,12 @@
     }else {
         //设置状态
         JK_M.isAlerted = YES;
+        //创建不可交互视图
+        JK_M.maskView = [[UIView alloc] initWithFrame:JK_M.mainWindow.bounds];
+        //设置透明
+        JK_M.maskView.backgroundColor = [UIColor clearColor];
+        //主窗口添加不可交互视图
+        [JK_M.mainWindow addSubview:JK_M.maskView];
         //设置弹窗容器和内容宽高
         CGFloat cWH = SCREEN_WIDTH * 0.3, iWH = cWH * 0.4;
         //屏幕中心点

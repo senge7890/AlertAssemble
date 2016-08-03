@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+JKAlert.h"
+
 
 //标识视图
 @interface JKInformView : UIView
