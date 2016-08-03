@@ -12,6 +12,8 @@
 
 //快速引用单例
 #define JK_M [JKAlertManager manager]
+//默认持续时间
+#define DURATION_DEFAULT 3.0
 
 //弹窗管理器
 @interface JKAlertManager : NSObject
@@ -30,11 +32,15 @@
 @property (nonatomic, assign) BOOL isAlerted;
 //主窗口
 @property (nonatomic, strong) UIWindow *mainWindow;
+//持续时间
+@property (nonatomic, assign) NSTimeInterval duration;
 
 //快速创建
 + (instancetype)manager;
 //主窗口移除所有弹窗
 - (void)clearAllAlertViews;
+//隐藏所有弹窗
+- (void)hideAllAlertViews;
 
 @end
 

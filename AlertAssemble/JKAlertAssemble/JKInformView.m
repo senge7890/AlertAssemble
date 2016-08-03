@@ -39,7 +39,7 @@
 - (void)drawRound {
     //创建路径对象
     UIBezierPath *path = [UIBezierPath bezierPath];
-    //添加原型路径
+    //添加圆形路径
     [path addArcWithCenter:CGPointMake(half(self.jk_width), half(self.jk_height)) radius:half(self.jk_width) startAngle:0 endAngle:2 * M_PI clockwise:NO];
     //初始化图层
     layer = [CAShapeLayer layer];
@@ -104,9 +104,9 @@
     //绘图
     [self drawLineAnimation];
 }
-
+//画叉叉
 - (void)drawInfromCross {
-    
+    //注释同上
     double cl = half(self.jk_height * sqrt(2.0));
     
     double scl = cl - half(self.jk_height);

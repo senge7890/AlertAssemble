@@ -10,18 +10,22 @@
 #import "NSObject+JKAlert.h"
 
 @interface JKWaitingView (){
-
+    //全局图层对象
     CAShapeLayer *layer;
+    //全局角度变量
     CGFloat angle;
 }
 @end
 
 @implementation JKWaitingView
 
+//自定义构造
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
+        //初始化角度
         angle = 1;
+        //画圆
         [self drawRound];
     }
     return self;

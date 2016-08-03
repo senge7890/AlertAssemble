@@ -51,6 +51,8 @@ CGFloat angleMake(CGFloat angle);
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 //屏幕高度
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+//屏幕中心点
+#define SCREEN_CENTER CGPointMake(half(SCREEN_WIDTH), half(SCREEN_HEIGHT))
 //动画持续时间(秒)
 #define ANIMATE_DURATION 0.5
 //线条粗度

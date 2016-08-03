@@ -16,6 +16,7 @@
 }
 
 @property (nonatomic, strong) NSArray *arrayTitles;
+@property (nonatomic, strong) NSArray *arrayDetails;
 
 @end
 
@@ -25,11 +26,22 @@
     
     if (!_arrayTitles) {
         
-        _arrayTitles = @[@"Tick", @"Cross", @"Wait", @"Text"];
+        _arrayTitles = @[@"Tick", @"Cross", @"Wait", @"Text", @"Text"];
         
     }
     
     return _arrayTitles;
+}
+
+- (NSArray *)arrayDetails {
+    
+    if (!_arrayDetails) {
+        
+        _arrayDetails = @[@"one second", @"default duration", @"touch up", @"one line", @"many lines"];
+        
+    }
+    
+    return _arrayDetails;
 }
 
 - (void)viewDidLoad {
@@ -66,13 +78,15 @@
     
     if (!cell) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }
     
     cell.textLabel.text = self.arrayTitles[indexPath.section];
+    
+    cell.detailTextLabel.text = self.arrayDetails[indexPath.section];
     
     return cell;
 }
@@ -84,7 +98,7 @@
     
     switch (indexPath.section) {
         case 0:
-            [JKAlert alertTick];
+            [JKAlert alertTickDuration:1];
             break;
         case 1:
             [JKAlert alertCross];
@@ -92,8 +106,23 @@
         case 2:
             [JKAlert alertWaiting:YES];
             break;
+        case 3:
+            [JKAlert alertText:@"hello developer!"];
+            break;
+        case 4:
+            [JKAlert alertText:@"He replied, “I have dreamed. I have turned my mind loose to imagine what I wanted to do. Then I have gone to bed and thought about my dreams. In the night I dreamt about my dreams. And when I awoke in the morning, I saw the way to make my dreams real. While other people were saying, \'You can\'t do that, it is impossible,\' I was well on my way to achieving what I wanted.” As Woodrow Wilson, 28th President of the U.S., said: “We grow great by dreams. All big men are dreamers.”"];
+            break;
     }
     
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
 @end

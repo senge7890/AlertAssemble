@@ -13,6 +13,7 @@
 		C9F24B4F1D4EE370000FFCF5 /* JKInformView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F24B4E1D4EE370000FFCF5 /* JKInformView.m */; };
 		C9F2ED231D517DD1003287FB /* NSObject+JKAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2ED221D517DD1003287FB /* NSObject+JKAlert.m */; };
 		C9F2ED261D518881003287FB /* JKWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2ED251D518881003287FB /* JKWaitingView.m */; };
+		C9F2ED291D51BF91003287FB /* NSString+JKAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2ED281D51BF91003287FB /* NSString+JKAlert.m */; };
 		C9F681AF1D49A89300D35575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F681AE1D49A89300D35575 /* main.m */; };
 		C9F681B21D49A89300D35575 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F681B11D49A89300D35575 /* AppDelegate.m */; };
 		C9F681B51D49A89300D35575 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F681B41D49A89300D35575 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 		C9F2ED221D517DD1003287FB /* NSObject+JKAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JKAlert.m"; sourceTree = "<group>"; };
 		C9F2ED241D518881003287FB /* JKWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKWaitingView.h; sourceTree = "<group>"; };
 		C9F2ED251D518881003287FB /* JKWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKWaitingView.m; sourceTree = "<group>"; };
+		C9F2ED271D51BF91003287FB /* NSString+JKAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKAlert.h"; sourceTree = "<group>"; };
+		C9F2ED281D51BF91003287FB /* NSString+JKAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKAlert.m"; sourceTree = "<group>"; };
 		C9F681AA1D49A89300D35575 /* AlertAssemble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertAssemble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F681AE1D49A89300D35575 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9F681B01D49A89300D35575 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				C9F2ED251D518881003287FB /* JKWaitingView.m */,
 				C9F2ED211D517DD1003287FB /* NSObject+JKAlert.h */,
 				C9F2ED221D517DD1003287FB /* NSObject+JKAlert.m */,
+				C9F2ED271D51BF91003287FB /* NSString+JKAlert.h */,
+				C9F2ED281D51BF91003287FB /* NSString+JKAlert.m */,
 			);
 			path = JKAlertAssemble;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				C9F681AF1D49A89300D35575 /* main.m in Sources */,
 				C9F2ED231D517DD1003287FB /* NSObject+JKAlert.m in Sources */,
 				C96371BF1D4AFCFC00663A0E /* AlertController.m in Sources */,
+				C9F2ED291D51BF91003287FB /* NSString+JKAlert.m in Sources */,
 				C9F24B491D4EDEB6000FFCF5 /* JKAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

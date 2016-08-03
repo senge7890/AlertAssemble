@@ -23,6 +23,7 @@
         m = [[self alloc] init];
         //设置主窗口
         m.mainWindow = [UIApplication sharedApplication].keyWindow;
+        m.duration = DURATION_DEFAULT;
     });
     //返回对象
     return m;
@@ -49,5 +50,17 @@
     self.waitView = nil;
     //置空可交互视图
     self.maskView = nil;
+}
+- (void)hideAllAlertViews {
+    //隐藏标识视图
+    self.informView.alpha = 0;
+    //隐藏文本视图
+    self.textLabel.alpha = 0;
+    //隐藏容器视图
+    self.containView.alpha = 0;
+    //隐藏等待视图
+    self.waitView.alpha = 0;
+    //隐藏可交互视图
+    self.maskView.alpha = 0;
 }
 @end
