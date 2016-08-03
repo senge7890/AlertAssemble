@@ -208,9 +208,19 @@ typedef void (^jk_block_fl)(CGFloat num);
     //容器背景色
     JK_M.containView.backgroundColor = [UIColor blackColor];
     //容器圆角
+    JK_M.containView.layer.shadowRadius = 5;
+    //阴影尺寸位置
+    CGRect shadowBounds = CGRectMake(-1, -1, JK_M.containView.jk_width + 2, JK_M.containView.jk_height + 2);
+    //阴影圆角
     JK_M.containView.layer.cornerRadius = 5;
-    //容器裁剪超出父图层内容
-    JK_M.containView.layer.masksToBounds = YES;
+    //阴影底色
+    JK_M.containView.layer.shadowColor = [UIColor blackColor].CGColor;
+    //阴影范围
+    JK_M.containView.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowBounds].CGPath;
+    //阴影透明度
+    JK_M.containView.layer.shadowOpacity = 0.5;
+//    //容器裁剪超出父图层内容
+//    JK_M.containView.layer.masksToBounds = YES;
     //容器半透明
     JK_M.containView.alpha = 0.7;
     //添加容器到主窗口
