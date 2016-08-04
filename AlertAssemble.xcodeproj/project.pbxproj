@@ -64,6 +64,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9F237B71D52CD6B00BC753C /* JKProgressAssemble */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JKProgressAssemble;
+			sourceTree = "<group>";
+		};
 		C9F681A11D49A89300D35575 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +118,7 @@
 		C9F681C41D49A92600D35575 /* JKAlertAssemble */ = {
 			isa = PBXGroup;
 			children = (
+				C9F237B71D52CD6B00BC753C /* JKProgressAssemble */,
 				C9F681C51D49AB2D00D35575 /* UIView+JKAlert.h */,
 				C9F681C61D49AB2D00D35575 /* UIView+JKAlert.m */,
 				C9F24B471D4EDEB6000FFCF5 /* JKAlert.h */,

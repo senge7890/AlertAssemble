@@ -46,6 +46,14 @@ CGFloat doubling(CGFloat number);
  *  @return 
  */
 CGFloat angleMake(CGFloat angle);
+/**
+ *  百分值
+ *
+ *  @param num 操作数
+ *
+ *  @return
+ */
+CGFloat percent(CGFloat num);
 
 //屏幕宽度
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
