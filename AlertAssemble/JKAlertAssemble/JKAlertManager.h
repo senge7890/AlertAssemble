@@ -47,19 +47,46 @@ typedef void (^jk_block_fl)(CGFloat num);
 - (void)hideAllAlertViews;
 //添加弹性
 - (void)elastAllAlertViews;
-
+//普通移除
 - (void)dismissNormal;
-
+/**
+ *  定时移除
+ *
+ *  @param duration 持续时间
+ */
 - (void)dismissDuration:(NSTimeInterval)duration;
-
+/**
+ *  添加交互视图
+ *
+ *  @param enable 是否可以交互
+ */
 - (void)coverEnable:(BOOL)enable;
-
+/**
+ *  添加方形容器
+ *
+ *  @param side  边长
+ *  @param block handle
+ */
 - (void)containSide:(CGFloat)side block:(jk_block_fl)block;
-
+/**
+ *  添加矩形容器
+ *
+ *  @param size  宽高
+ *  @param block handle
+ */
 - (void)containSize:(CGSize)size block:(jk_block_fl)block;
-
+/**
+ *  清理旧视图
+ *
+ *  @param block handle
+ */
 - (void)cleanOldAlertViews:(jk_block_t)block;
-
+/**
+ *  等待视图判断
+ *
+ *  @param isAlert 显示/隐藏
+ *  @param block   handle
+ */
 - (void)waitingJudge:(BOOL)isAlert block:(jk_block_t)block;
 
 @end

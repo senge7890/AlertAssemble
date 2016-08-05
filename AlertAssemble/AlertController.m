@@ -30,7 +30,7 @@
     
     if (!_arrayTitles) {
         
-        _arrayTitles = @[@"Tick", @"Cross", @"Wait", @"Text", @"Text", @"WaitText", @"WaitText"];
+        _arrayTitles = @[@"Tick", @"Cross", @"Wait", @"Text", @"Text", @"WaitText", @"WaitText", @"Tick", @"Cross"];
         
     }
     
@@ -41,7 +41,7 @@
     
     if (!_arrayDetails) {
         
-        _arrayDetails = @[@"one second", @"default duration", @"touch up", @"one line", @"many lines", @"one line", @"many lines"];
+        _arrayDetails = @[@"one second", @"default duration", @"touch up", @"one line", @"many lines", @"one line", @"many lines", @"text", @"text"];
         
     }
     
@@ -87,6 +87,8 @@
     
     cell.detailTextLabel.text = self.arrayDetails[indexPath.row];
     
+    cell.detailTextLabel.textColor = [UIColor colorWithRed:0.126 green:0.584 blue:0.999 alpha:1.000];
+    
     return cell;
 }
 
@@ -116,6 +118,12 @@
             break;
         case 6:
             [JKAlert alertWaitingText:textManyLines];
+            break;
+        case 7:
+            [JKAlert alertTickText:textOneLine];
+            break;
+        case 8:
+            [JKAlert alertCrossText:textManyLines duration:1];
             break;
     }
     

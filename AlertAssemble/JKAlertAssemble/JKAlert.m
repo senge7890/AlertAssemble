@@ -80,6 +80,7 @@
         [JK_M cleanOldAlertViews:^{
             //设置状态
             JK_M.isAlerted = YES;
+            //标识宽高
             CGFloat cWH = SCREEN_WIDTH * ONE_SEVENTH;
             //容器最大宽
             CGFloat containMaxWidth = SCREEN_WIDTH - 100;
@@ -120,6 +121,14 @@
     JK_M.duration = duration;
     [self alertInformWithStyle:JKInformStyleTick];
 }
++ (void)alertTickText:(NSString *)text {
+    JK_M.duration = DURATION_DEFAULT;
+    [self alertInformWithStyle:JKInformStyleTick text:text];
+}
++ (void)alertTickText:(NSString *)text duration:(NSTimeInterval)duration {
+    JK_M.duration = duration;
+    [self alertInformWithStyle:JKInformStyleTick text:text];
+}
 + (void)alertCross {
     JK_M.duration = DURATION_DEFAULT;
     [self alertInformWithStyle:JKInformStyleCross];
@@ -127,6 +136,14 @@
 + (void)alertCrossDuration:(NSTimeInterval)duration {
     JK_M.duration = duration;
     [self alertInformWithStyle:JKInformStyleCross];
+}
++ (void)alertCrossText:(NSString *)text {
+    JK_M.duration = DURATION_DEFAULT;
+    [self alertInformWithStyle:JKInformStyleCross text:text];
+}
++ (void)alertCrossText:(NSString *)text duration:(NSTimeInterval)duration {
+    JK_M.duration = duration;
+    [self alertInformWithStyle:JKInformStyleCross text:text];
 }
 //根据类型判断显示哪一种提示
 + (void)alertInformWithStyle:(JKInformStyle)style{
@@ -144,15 +161,53 @@
             JK_M.informView.center = SCREEN_CENTER;
             //添加内容到主窗口
             [JK_M.mainWindow addSubview:JK_M.informView];
-            //定时移除
-            [JK_M dismissDuration:JK_M.duration];
         }];
+        //定时移除
+        [JK_M dismissDuration:JK_M.duration];
         //创建不可交互视图
         [JK_M coverEnable:NO];
         //添加弹性
         [JK_M elastAllAlertViews];
     }];
 }
-
++ (void)alertInformWithStyle:(JKInformStyle)style text:(NSString *)text {
+    
+    [JK_M cleanOldAlertViews:^{
+        //设置状态
+        JK_M.isAlerted = YES;
+        //容器最大宽
+        CGFloat containMaxWidth = SCREEN_WIDTH - 100;
+        //标识宽高
+        CGFloat cWH = SCREEN_WIDTH * 0.1;
+        //文字最大宽
+        CGFloat textMaxWidth = containMaxWidth - 30;
+        //实例化
+        JK_M.textLabel = [[JKAdapterLabel alloc] initWithText:text font:[UIFont systemFontOfSize:15] maxWitdth:textMaxWidth];
+        //创建内容
+        JK_M.informView = [[JKInformView alloc] initWithFrame:CGRectMake(0, 0, cWH, cWH) style:style];
+        //设置位置
+        JK_M.informView.center = CGPointMake(half(SCREEN_WIDTH), half(SCREEN_HEIGHT) - half(JK_M.textLabel.jk_height));
+        JK_M.textLabel.center  = JK_M.informView.center;
+        JK_M.textLabel.jk_y = JK_M.informView.jk_y + JK_M.informView.jk_height + 5;
+        //控制宽度
+        if (JK_M.textLabel.jk_width < JK_M.informView.jk_width) {
+            JK_M.textLabel.jk_width = JK_M.informView.jk_width;
+        }
+        //添加容器
+        [JK_M containSize:CGSizeMake(JK_M.textLabel.jk_width + 20, JK_M.textLabel.jk_height + JK_M.informView.jk_height + 25) block:^(CGFloat num) {
+            //添加内容到主窗口
+            [JK_M.mainWindow addSubview:JK_M.informView];
+            //添加标签
+            [JK_M.mainWindow addSubview:JK_M.textLabel];
+        }];
+        //定时移除
+        [JK_M dismissDuration:JK_M.duration];
+        //创建可交互视图
+        [JK_M coverEnable:NO];
+        //添加弹性
+        [JK_M elastAllAlertViews];
+    }];
+    
+}
 
 @end
