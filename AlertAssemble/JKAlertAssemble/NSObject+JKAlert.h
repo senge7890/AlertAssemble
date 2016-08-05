@@ -26,13 +26,6 @@ typedef void(^jk_block_t)(void);
  */
 - (void)eventsDelay:(NSTimeInterval)delay block:(jk_block_t)block;
 /**
- *  周期性执行代码
- *
- *  @param delay 重复间隔(秒)
- *  @param block 需要执行的代码块
- */
-- (void)eventsCycleDelay:(NSTimeInterval)delay block:(jk_block_t)block;
-/**
  *  主线程操作
  *
  *  @param block 需要执行的代码块

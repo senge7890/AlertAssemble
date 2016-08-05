@@ -15,11 +15,7 @@
         [self performSelector:@selector(complyBlock:) withObject:block afterDelay:delay];
     }
 }
-- (void)eventsCycleDelay:(NSTimeInterval)delay block:(jk_block_t)block {
-    if (block) {
-        [NSTimer scheduledTimerWithTimeInterval:delay target:self selector:@selector(complyBlock:) userInfo:block repeats:YES];
-    }
-}
+
 - (void)complyBlock:(jk_block_t)block {
     if (block) {
         block();

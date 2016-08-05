@@ -8,6 +8,7 @@
 
 #import "AlertController.h"
 #import "JKAlert.h"
+#import "NSObject+JKAlert.h"
 
 @interface AlertController ()<UITableViewDataSource, UITableViewDelegate> {
     

@@ -8,6 +8,7 @@
 
 #import "JKWaitingView.h"
 #import "NSObject+JKAlert.h"
+#import "UIView+JKAlert.h"
 
 @interface JKWaitingView (){
     //全局图层对象

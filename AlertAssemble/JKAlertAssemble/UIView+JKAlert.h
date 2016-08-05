@@ -78,5 +78,8 @@ CGFloat percent(CGFloat num);
 @property (nonatomic, assign) CGFloat jk_height;
 //视图尺寸
 @property (nonatomic, assign) CGSize jk_size;
-
+//视图添加弹性
+- (void)elast;
+- (void)elastValues:(NSArray<NSValue *> *)values;
+- (void)shadowRect;
 @end

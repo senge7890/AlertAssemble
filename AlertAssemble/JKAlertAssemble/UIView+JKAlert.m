@@ -65,4 +65,30 @@ CGFloat percent(CGFloat num) {
 - (CGSize)jk_size {
     return self.frame.size;
 }
+
+#pragma mark - function
+- (void)elast {
+    [self elastValues:@[@(0.7),@(1.1),@(1)]];
+}
+- (void)elastValues:(NSArray<NSValue *> *)values {
+    CAKeyframeAnimation *animate = [CAKeyframeAnimation animation];
+    animate.keyPath = @"transform.scale";
+    animate.values = values;
+    animate.duration = 0.2;
+    [self.layer addAnimation:animate forKey:nil];
+}
+- (void)shadowRect {
+    //容器圆角
+    self.layer.shadowRadius = 5;
+    //阴影尺寸位置
+    CGRect shadowBounds = CGRectMake(-1, -1, self.jk_width + 2, self.jk_height + 2);
+    //阴影圆角
+    self.layer.cornerRadius = 5;
+    //阴影底色
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    //阴影范围
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowBounds].CGPath;
+    //阴影透明度
+    self.layer.shadowOpacity = 0.5;
+}
 @end

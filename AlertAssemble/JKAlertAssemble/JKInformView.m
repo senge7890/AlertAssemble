@@ -7,6 +7,7 @@
 //
 
 #import "JKInformView.h"
+#import "UIView+JKAlert.h"
 
 //比例1/7
 #define ONE_SEVENTH 0.14
