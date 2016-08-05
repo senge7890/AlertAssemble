@@ -60,5 +60,7 @@ typedef void (^jk_block_fl)(CGFloat num);
 
 - (void)cleanOldAlertViews:(jk_block_t)block;
 
+- (void)waitingJudge:(BOOL)isAlert block:(jk_block_t)block;
+
 @end
 

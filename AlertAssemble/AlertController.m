@@ -10,6 +10,9 @@
 #import "JKAlert.h"
 #import "NSObject+JKAlert.h"
 
+#define textOneLine @"hello developer!"
+#define textManyLines @"He replied, “I have dreamed. I have turned my mind loose to imagine what I wanted to do. Then I have gone to bed and thought about my dreams. In the night I dreamt about my dreams. And when I awoke in the morning, I saw the way to make my dreams real. While other people were saying, \'You can\'t do that, it is impossible,\' I was well on my way to achieving what I wanted.” As Woodrow Wilson, 28th President of the U.S., said: “We grow great by dreams. All big men are dreamers.”"
+
 @interface AlertController ()<UITableViewDataSource, UITableViewDelegate> {
     
     UITableView *_tableView;
@@ -27,7 +30,7 @@
     
     if (!_arrayTitles) {
         
-        _arrayTitles = @[@"Tick", @"Cross", @"Wait", @"Text", @"Text"];
+        _arrayTitles = @[@"Tick", @"Cross", @"Wait", @"Text", @"Text", @"WaitText", @"WaitText"];
         
     }
     
@@ -38,7 +41,7 @@
     
     if (!_arrayDetails) {
         
-        _arrayDetails = @[@"one second", @"default duration", @"touch up", @"one line", @"many lines"];
+        _arrayDetails = @[@"one second", @"default duration", @"touch up", @"one line", @"many lines", @"one line", @"many lines"];
         
     }
     
@@ -59,15 +62,10 @@
 }
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return self.arrayTitles.count;
-    
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return self.arrayTitles.count;
     
 }
 
@@ -85,9 +83,9 @@
         
     }
     
-    cell.textLabel.text = self.arrayTitles[indexPath.section];
+    cell.textLabel.text = self.arrayTitles[indexPath.row];
     
-    cell.detailTextLabel.text = self.arrayDetails[indexPath.section];
+    cell.detailTextLabel.text = self.arrayDetails[indexPath.row];
     
     return cell;
 }
@@ -97,7 +95,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    switch (indexPath.section) {
+    switch (indexPath.row) {
         case 0:
             [JKAlert alertTickDuration:1];
             break;
@@ -108,10 +106,16 @@
             [JKAlert alertWaiting:YES];
             break;
         case 3:
-            [JKAlert alertText:@"hello developer!"];
+            [JKAlert alertText:textOneLine];
             break;
         case 4:
-            [JKAlert alertText:@"He replied, “I have dreamed. I have turned my mind loose to imagine what I wanted to do. Then I have gone to bed and thought about my dreams. In the night I dreamt about my dreams. And when I awoke in the morning, I saw the way to make my dreams real. While other people were saying, \'You can\'t do that, it is impossible,\' I was well on my way to achieving what I wanted.” As Woodrow Wilson, 28th President of the U.S., said: “We grow great by dreams. All big men are dreamers.”"];
+            [JKAlert alertText:textManyLines];
+            break;
+        case 5:
+            [JKAlert alertWaitingText:textOneLine];
+            break;
+        case 6:
+            [JKAlert alertWaitingText:textManyLines];
             break;
     }
     
@@ -120,10 +124,4 @@
     return 50;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10;
-}
 @end

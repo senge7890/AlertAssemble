@@ -52,8 +52,7 @@
 }
 #pragma mark - 等待视图相关
 + (void)alertWaiting:(BOOL)isAlert {
-    //判断是否要显示
-    if (isAlert) {
+    [JK_M waitingJudge:isAlert block:^{
         //判断是否有弹窗正在显示
         [JK_M cleanOldAlertViews:^{
             //设置状态
@@ -74,13 +73,43 @@
             //添加弹性
             [JK_M elastAllAlertViews];
         }];
-    }else {
-        //判断是否有弹窗正在显示
-        if (JK_M.isAlerted) {
-            //清理所有弹窗
-            [JK_M dismissNormal];
-        }
-    }
+    }];
+}
++ (void)alertWaitingText:(NSString *)text {
+    [JK_M waitingJudge:YES block:^{
+        [JK_M cleanOldAlertViews:^{
+            //设置状态
+            JK_M.isAlerted = YES;
+            CGFloat cWH = SCREEN_WIDTH * ONE_SEVENTH;
+            //容器最大宽
+            CGFloat containMaxWidth = SCREEN_WIDTH - 100;
+            //文字最大宽
+            CGFloat textMaxWidth = containMaxWidth - 30;
+            //实例化
+            JK_M.textLabel = [[JKAdapterLabel alloc] initWithText:text font:[UIFont systemFontOfSize:15] maxWitdth:textMaxWidth];
+            //创建内容
+            JK_M.waitView = [[JKWaitingView alloc] initWithFrame:CGRectMake(0, 0, cWH, cWH)];
+            //设置位置
+            JK_M.waitView.center = CGPointMake(half(SCREEN_WIDTH), half(SCREEN_HEIGHT) - half(JK_M.textLabel.jk_height));
+            JK_M.textLabel.center  = JK_M.waitView.center;
+            JK_M.textLabel.jk_y = JK_M.waitView.jk_y + JK_M.waitView.jk_height;
+            //控制宽度
+            if (JK_M.textLabel.jk_width < JK_M.waitView.jk_width) {
+                JK_M.textLabel.jk_width = JK_M.waitView.jk_width;
+            }
+            //添加容器
+            [JK_M containSize:CGSizeMake(JK_M.textLabel.jk_width + 20, JK_M.textLabel.jk_height + JK_M.waitView.jk_height + 20) block:^(CGFloat num) {
+                //添加内容到主窗口
+                [JK_M.mainWindow addSubview:JK_M.waitView];
+                //添加标签
+                [JK_M.mainWindow addSubview:JK_M.textLabel];
+            }];
+            //创建可交互视图
+            [JK_M coverEnable:YES];
+            //添加弹性
+            [JK_M elastAllAlertViews];
+        }];
+    }];
 }
 #pragma mark - 标识视图相关
 + (void)alertTick {

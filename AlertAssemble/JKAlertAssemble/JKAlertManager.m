@@ -171,4 +171,20 @@
     //执行代码块
     if (block) block(size.width == size.height ? size.width : 0);
 }
+- (void)waitingJudge:(BOOL)isAlert block:(jk_block_t)block {
+    //判断是否要显示
+    if (isAlert) {
+        //判断代码块
+        if (block) {
+            //执行代码块
+            block();
+        }
+    }else {
+        //判断是否有弹窗正在显示
+        if (JK_M.isAlerted) {
+            //清理所有弹窗
+            [JK_M dismissNormal];
+        }
+    }
+}
 @end

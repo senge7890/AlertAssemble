@@ -38,6 +38,12 @@
  */
 + (void)alertWaiting:(BOOL)isAlert;
 /**
+ *  等待提示 (消失方法同样调用 [JKAlert alertWaiting:NO])
+ *
+ *  @param text 提示文本
+ */
++ (void)alertWaitingText:(NSString *)text;
+/**
  *  文本提示
  *
  *  @param text 提示内容

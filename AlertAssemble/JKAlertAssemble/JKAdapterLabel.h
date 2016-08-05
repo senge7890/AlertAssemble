@@ -19,4 +19,6 @@
 //只能使用此方法初始化, 其他初始化方法无效
 - (instancetype)initWithText:(NSString *)text font:(UIFont *)font maxWitdth:(CGFloat)maxWidth;
 
+
+
 @end

@@ -55,6 +55,8 @@ CGFloat angleMake(CGFloat angle);
  */
 CGFloat percent(CGFloat num);
 
+//比例1/7
+#define ONE_SEVENTH 0.14
 //屏幕宽度
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 //屏幕高度
