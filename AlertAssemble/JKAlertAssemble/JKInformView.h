@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JKBaseView.h"
 
 //标识视图
-@interface JKInformView : UIView
+@interface JKInformView : JKBaseView
 
 /**
  *  自定义构造方法

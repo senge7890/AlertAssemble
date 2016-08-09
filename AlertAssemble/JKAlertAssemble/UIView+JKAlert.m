@@ -7,6 +7,9 @@
 //
 
 #import "UIView+JKAlert.h"
+#import "JKWaitingView.h"
+#import "JKInformView.h"
+#import "JKAdapterLabel.h"
 
 CGFloat half(CGFloat number) {
     return number * 0.5;
@@ -71,10 +74,15 @@ CGFloat percent(CGFloat num) {
     [self elastValues:@[@(0.7),@(1.1),@(1)]];
 }
 - (void)elastValues:(NSArray<NSValue *> *)values {
+    //创建动画
     CAKeyframeAnimation *animate = [CAKeyframeAnimation animation];
+    //缩放路径
     animate.keyPath = @"transform.scale";
+    //值
     animate.values = values;
+    //持续时间
     animate.duration = 0.2;
+    //添加图层动画
     [self.layer addAnimation:animate forKey:nil];
 }
 - (void)shadowRect {
@@ -90,5 +98,19 @@ CGFloat percent(CGFloat num) {
     self.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowBounds].CGPath;
     //阴影透明度
     self.layer.shadowOpacity = 0.5;
+}
+- (JKBaseView *)viewWithMarkCode:(NSString *)markCode {
+    //遍历子控件
+    for (JKBaseView *view in self.subviews) {
+        //判断类
+        if ([view isKindOfClass:[JKBaseView class]]) {
+            NSString *code = ((JKBaseView *)view).markCode;
+            //判断标记码
+            if (code && code.length && [code isEqualToString:markCode]) {
+                return view;
+            }
+        }
+    }
+    return nil;
 }
 @end

@@ -32,4 +32,6 @@ typedef void(^jk_block_t)(void);
  */
 void mainThread(jk_block_t block);
 
+- (BOOL)getVariableWithVarName:(NSString *)name;
+
 @end

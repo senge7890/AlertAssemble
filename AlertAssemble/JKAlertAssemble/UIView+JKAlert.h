@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JKBaseView.h"
 
 /**
  *  标识类型
@@ -82,6 +83,20 @@ CGFloat percent(CGFloat num);
 @property (nonatomic, assign) CGSize jk_size;
 //视图添加弹性
 - (void)elast;
+/**
+ *  按需添加弹性
+ *
+ *  @param values 弹性动画值
+ */
 - (void)elastValues:(NSArray<NSValue *> *)values;
+//设置四周阴影
 - (void)shadowRect;
+/**
+ *  根据标记码取出视图
+ *
+ *  @param markCode 标记码
+ *
+ *  @return 继承JKBaseView的视图
+ */
+- (JKBaseView *)viewWithMarkCode:(NSString *)markCode;
 @end

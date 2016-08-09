@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+JKAlert.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (JKAlert)
 
@@ -29,5 +30,18 @@ void mainThread(jk_block_t block) {
             block();
         });
     }
+}
+- (BOOL)getVariableWithVarName:(NSString *)name {
+    unsigned int outCount, i;
+    Ivar *ivars = class_copyIvarList(self.class, &outCount);
+    for (i = 0; i < outCount; i++) {
+        Ivar property = ivars[i];
+        NSString *keyName = [NSString stringWithCString:ivar_getName(property) encoding:NSUTF8StringEncoding];
+        keyName = [keyName stringByReplacingOccurrencesOfString:@"_" withString:@""];
+        if ([keyName isEqualToString:name]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 @end

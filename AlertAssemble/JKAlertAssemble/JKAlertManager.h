@@ -12,6 +12,14 @@
 #import "JKAdapterLabel.h"
 #import "NSObject+JKAlert.h"
 
+
+extern NSString *const JKMaskCode; //交互视图标记
+extern NSString *const JKInformCode; //标识视图标记
+extern NSString *const JKWaitCode; //等待视图标记
+extern NSString *const JKContainCode; //容器标记
+extern NSString *const JKTextCode; //文本标签标记
+
+
 typedef void (^jk_block_fl)(CGFloat num);
 
 //快速引用单例
@@ -23,11 +31,11 @@ typedef void (^jk_block_fl)(CGFloat num);
 @interface JKAlertManager : NSObject
 
 //可交互视图
-@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) JKBaseView *maskView;
 //标识视图
 @property (nonatomic, strong) JKInformView *informView;
 //容器视图
-@property (nonatomic, strong) UIView *containView;
+@property (nonatomic, strong) JKBaseView *containView;
 //文本视图
 @property (nonatomic, strong) JKAdapterLabel *textLabel;
 //等待视图
@@ -41,20 +49,34 @@ typedef void (^jk_block_fl)(CGFloat num);
 
 //快速创建
 + (instancetype)manager;
-//主窗口移除所有弹窗
-- (void)cleanAllAlertViews;
-//隐藏所有弹窗
-- (void)hideAllAlertViews;
+//弹性移除所有视图
+- (void)dismissElast;
+/**
+ *  主窗口移除所有弹窗
+ *
+ *  @param markCodeInt 标记码
+ */
+- (void)cleanAllAlertViewsWithMarkCodeInt:(NSUInteger)markCodeInt;
+/**
+ *  隐藏所有弹窗
+ *
+ *  @param markCodeInt 标记码
+ */
+- (void)hideAllAlertViewsWithMarkCodeInt:(NSUInteger)markCodeInt;
 //添加弹性
 - (void)elastAllAlertViews;
-//普通移除
-- (void)dismissNormal;
+/**
+ *  普通移除
+ *
+ *  @param markCodeInt 标记码
+ */
+- (void)dismissNormalWithMarkCodeInt:(NSUInteger)markCodeInt;
 /**
  *  定时移除
  *
  *  @param duration 持续时间
  */
-- (void)dismissDuration:(NSTimeInterval)duration;
+- (void)dismissDuration:(NSTimeInterval)duration markCodeInt:(NSUInteger)markCodeInt;
 /**
  *  添加交互视图
  *
@@ -76,18 +98,23 @@ typedef void (^jk_block_fl)(CGFloat num);
  */
 - (void)containSize:(CGSize)size block:(jk_block_fl)block;
 /**
- *  清理旧视图
- *
- *  @param block handle
- */
-- (void)cleanOldAlertViews:(jk_block_t)block;
-/**
  *  等待视图判断
  *
  *  @param isAlert 显示/隐藏
  *  @param block   handle
  */
 - (void)waitingJudge:(BOOL)isAlert block:(jk_block_t)block;
-
+/**
+ *  所有弹窗设置标记码
+ *
+ *  @param markCode 标记码
+ */
+- (void)markCodeAllAlertViews:(NSUInteger)markCode;
+/**
+ *  时间戳转UInt
+ *
+ *  @return 
+ */
+- (NSUInteger)timestamp;
 @end
 

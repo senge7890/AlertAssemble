@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C918D3491D55756400421274 /* JKBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C918D3481D55756400421274 /* JKBaseView.m */; };
 		C926725D1D5421A6000A0334 /* JKAdapterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C926725C1D5421A6000A0334 /* JKAdapterLabel.m */; };
 		C96371BF1D4AFCFC00663A0E /* AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96371BE1D4AFCFC00663A0E /* AlertController.m */; };
 		C9F24B491D4EDEB6000FFCF5 /* JKAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F24B481D4EDEB6000FFCF5 /* JKAlert.m */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C918D3471D55756400421274 /* JKBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKBaseView.h; sourceTree = "<group>"; };
+		C918D3481D55756400421274 /* JKBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKBaseView.m; sourceTree = "<group>"; };
 		C926725B1D5421A6000A0334 /* JKAdapterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKAdapterLabel.h; sourceTree = "<group>"; };
 		C926725C1D5421A6000A0334 /* JKAdapterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAdapterLabel.m; sourceTree = "<group>"; };
 		C96371BD1D4AFCFC00663A0E /* AlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertController.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				C9F2ED281D51BF91003287FB /* NSString+JKAlert.m */,
 				C926725B1D5421A6000A0334 /* JKAdapterLabel.h */,
 				C926725C1D5421A6000A0334 /* JKAdapterLabel.m */,
+				C918D3471D55756400421274 /* JKBaseView.h */,
+				C918D3481D55756400421274 /* JKBaseView.m */,
 			);
 			path = JKAlertAssemble;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				C9F2ED261D518881003287FB /* JKWaitingView.m in Sources */,
 				C9F681B21D49A89300D35575 /* AppDelegate.m in Sources */,
 				C9F24B4F1D4EE370000FFCF5 /* JKInformView.m in Sources */,
+				C918D3491D55756400421274 /* JKBaseView.m in Sources */,
 				C9F681AF1D49A89300D35575 /* main.m in Sources */,
 				C9F2ED231D517DD1003287FB /* NSObject+JKAlert.m in Sources */,
 				C96371BF1D4AFCFC00663A0E /* AlertController.m in Sources */,

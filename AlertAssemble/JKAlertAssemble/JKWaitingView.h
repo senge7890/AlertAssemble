@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JKBaseView.h"
 
-@interface JKWaitingView : UIView
+@interface JKWaitingView : JKBaseView
 
 @end
