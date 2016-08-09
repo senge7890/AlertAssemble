@@ -31,7 +31,7 @@ void mainThread(jk_block_t block) {
         });
     }
 }
-- (BOOL)getVariableWithVarName:(NSString *)name {
+- (BOOL)hasVariableWithVarName:(NSString *)name {
     unsigned int outCount, i;
     Ivar *ivars = class_copyIvarList(self.class, &outCount);
     for (i = 0; i < outCount; i++) {

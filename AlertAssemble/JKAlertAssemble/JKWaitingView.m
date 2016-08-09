@@ -84,7 +84,7 @@
 }
 
 - (void)endAnimation {
-    //角度加十
+    //角度加10
     angle += 10;
     //再次执行动画
     [self startAnimation];

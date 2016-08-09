@@ -46,6 +46,7 @@ NSString *const JKTextCode = @"Text";
     //返回对象
     return m;
 }
+#pragma mark - 移除视图相关
 - (void)cleanAllAlertViewsWithMarkCodeInt:(NSUInteger)markCodeInt {
     
     [self alertViewsWithMarkCodeInt:markCodeInt block:^(JKBaseView *maskView, JKBaseView *containView, JKWaitingView *waitingView, JKAdapterLabel *textLabel, JKInformView *informView) {
@@ -71,16 +72,7 @@ NSString *const JKTextCode = @"Text";
         maskView = nil;
     }];
 }
-- (void)alertViewsWithMarkCodeInt:(NSUInteger)markCodeInt block:(jk_block_views)block {
-    JKInformView *informView = (JKInformView *)[JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKInformCode]];
-    JKAdapterLabel *textLabel = (JKAdapterLabel *)[JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKTextCode]];
-    JKBaseView *containView = [JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKContainCode]];
-    JKWaitingView *waitingView = (JKWaitingView *)[JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKWaitCode]];
-    JKBaseView *maskView = [JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKMaskCode]];
-    if (block) {
-        block(maskView, containView, waitingView, textLabel, informView);
-    }
-}
+
 - (void)hideAllAlertViewsWithMarkCodeInt:(NSUInteger)markCodeInt {
     
     [self alertViewsWithMarkCodeInt:markCodeInt block:^(JKBaseView *maskView, JKBaseView *containView, JKWaitingView *waitingView, JKAdapterLabel *textLabel, JKInformView *informView) {
@@ -195,6 +187,7 @@ NSString *const JKTextCode = @"Text";
     }];
 }
 
+#pragma mark - 按模块添加
 - (void)coverEnable:(BOOL)enable {
     //设置状态
     JK_M.isAlerted = YES;
@@ -246,22 +239,34 @@ NSString *const JKTextCode = @"Text";
         }
     }
 }
+#pragma mark - functions
 - (NSString *)markCodeInt:(NSUInteger)markCodeInt asString:(NSString *)string {
     return [NSString stringWithFormat:@"%lu%@", markCodeInt, string];
 }
 - (void)markCodeAllAlertViews:(NSUInteger)markCodeInt {
     JK_M.maskView.markCode = [self markCodeInt:markCodeInt asString:JKMaskCode];
-    NSLog(@"maskView -> %@", JK_M.maskView.markCode);
+//    NSLog(@"maskView -> %@", JK_M.maskView.markCode);
     JK_M.containView.markCode = [self markCodeInt:markCodeInt asString:JKContainCode];
-    NSLog(@"containView -> %@", JK_M.containView.markCode);
+//    NSLog(@"containView -> %@", JK_M.containView.markCode);
     JK_M.informView.markCode = [self markCodeInt:markCodeInt asString:JKInformCode];
-    NSLog(@"informView -> %@", JK_M.informView.markCode);
+//    NSLog(@"informView -> %@", JK_M.informView.markCode);
     JK_M.textLabel.markCode = [self markCodeInt:markCodeInt asString:JKTextCode];
-    NSLog(@"textLabel -> %@", JK_M.textLabel.markCode);
+//    NSLog(@"textLabel -> %@", JK_M.textLabel.markCode);
     JK_M.waitView.markCode = [self markCodeInt:markCodeInt asString:JKWaitCode];
-    NSLog(@"waitView -> %@", JK_M.waitView.markCode);
+//    NSLog(@"waitView -> %@", JK_M.waitView.markCode);
 }
 - (NSUInteger)timestamp {
     return (NSInteger)(time(NULL));
+}
+
+- (void)alertViewsWithMarkCodeInt:(NSUInteger)markCodeInt block:(jk_block_views)block {
+    JKInformView *informView = (JKInformView *)[JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKInformCode]];
+    JKAdapterLabel *textLabel = (JKAdapterLabel *)[JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKTextCode]];
+    JKBaseView *containView = [JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKContainCode]];
+    JKWaitingView *waitingView = (JKWaitingView *)[JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKWaitCode]];
+    JKBaseView *maskView = [JK_M.mainWindow viewWithMarkCode:[self markCodeInt:markCodeInt asString:JKMaskCode]];
+    if (block) {
+        block(maskView, containView, waitingView, textLabel, informView);
+    }
 }
 @end

@@ -31,7 +31,13 @@ typedef void(^jk_block_t)(void);
  *  @param block 需要执行的代码块
  */
 void mainThread(jk_block_t block);
-
-- (BOOL)getVariableWithVarName:(NSString *)name;
+/**
+ *  判断对象有无该属性
+ *
+ *  @param name 属性名字
+ *
+ *  @return
+ */
+- (BOOL)hasVariableWithVarName:(NSString *)name;
 
 @end
