@@ -56,17 +56,11 @@ CGFloat angleMake(CGFloat angle);
  */
 CGFloat percent(CGFloat num);
 
-//比例1/7
 #define ONE_SEVENTH 0.14
-//屏幕宽度
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-//屏幕高度
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-//屏幕中心点
 #define SCREEN_CENTER CGPointMake(half(SCREEN_WIDTH), half(SCREEN_HEIGHT))
-//动画持续时间(秒)
 #define ANIMATE_DURATION 0.5
-//线条粗度
 #define LINE_WIDTH 2.0
 
 @interface UIView (JKAlert)
@@ -81,22 +75,12 @@ CGFloat percent(CGFloat num);
 @property (nonatomic, assign) CGFloat jk_height;
 //视图尺寸
 @property (nonatomic, assign) CGSize jk_size;
-//视图添加弹性
+
 - (void)elast;
-/**
- *  按需添加弹性
- *
- *  @param values 弹性动画值
- */
+
 - (void)elastValues:(NSArray<NSValue *> *)values;
-//设置四周阴影
+
 - (void)shadowRect;
-/**
- *  根据标记码取出视图
- *
- *  @param markCode 标记码
- *
- *  @return 继承JKBaseView的视图
- */
+
 - (JKBaseView *)viewWithMarkCode:(NSString *)markCode;
 @end

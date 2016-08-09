@@ -13,9 +13,7 @@
  */
 typedef void(^jk_block_t)(void);
 
-/**
- *  对象扩展
- */
+
 @interface NSObject (JKAlert)
 
 /**

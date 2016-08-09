@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface JKBaseView : UIView
 
-//标记码，避免与tag冲突
 @property (nonatomic, copy) NSString *markCode;
 
 @end
