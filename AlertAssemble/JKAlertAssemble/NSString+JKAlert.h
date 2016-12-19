@@ -6,7 +6,7 @@
 //  Copyright © 2016年 JeanKyle. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (JKAlert)
 

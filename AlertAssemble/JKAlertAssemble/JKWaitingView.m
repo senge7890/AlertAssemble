@@ -48,16 +48,16 @@
     [self startAnimation];
 }
 - (void)startAnimation {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.02];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(endAnimation)];
-    self.transform = CGAffineTransformMakeRotation(angleMake(angle));
-    [UIView commitAnimations];
+    [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(translateAnimation) userInfo:nil repeats:YES];
 }
 
-- (void)endAnimation {
+- (void)translateAnimation {
     angle += 10;
-    [self startAnimation];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.02];
+//    [UIView setAnimationDelegate:self];
+//    [UIView setAnimationDidStopSelector:@selector(endAnimation)];
+    self.transform = CGAffineTransformMakeRotation(angleMake(angle));
+    [UIView commitAnimations];
 }
 @end
